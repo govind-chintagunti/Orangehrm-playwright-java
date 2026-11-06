@@ -28,4 +28,10 @@ public class LoginPage {
     public void navigateToLoginPage() {
         page.navigate("https://opensource-demo.orangehrmlive.com/");
     }
+
+    public void clickForgotPassword() {
+        page.locator("p.orangehrm-login-forgot-header").click();
+
+    }
+
 }
