@@ -1,37 +1,33 @@
 package com.orangehrm.pages;
 
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
 
 public class LoginPage {
-    private final Page page;
 
+    private Page page;
+
+    // Locators
+    private final String usernameField = "input[name='username']";
+    private final String passwordField = "input[name='password']";
+    private final String loginButton = "button[type='submit']";
+
+    // Constructor
     public LoginPage(Page page) {
         this.page = page;
     }
 
-    private String usernameInputSelector = "input[name='username']";
-    private String passwordInputSelector = "input[name='password']";
-
+    // Enter username
     public void enterUsername(String username) {
-        page.fill(usernameInputSelector, username);
+        page.locator(usernameField).fill(username);
     }
 
+    // Enter password
     public void enterPassword(String password) {
-        page.fill(passwordInputSelector, password);
+        page.locator(passwordField).fill(password);
     }
 
-    public void clickLoginButton() {
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
+    // Click login button
+    public void clickLogin() {
+        page.locator(loginButton).click();
     }
-
-    public void navigateToLoginPage() {
-        page.navigate("https://opensource-demo.orangehrmlive.com/");
-    }
-
-    public void clickForgotPassword() {
-        page.locator("p.orangehrm-login-forgot-header").click();
-
-    }
-
 }

@@ -1,0 +1,8 @@
+# Maven build files
+target/
+
+# IDE settings
+.vscode/
+
+# Compiled Java files
+*.class
